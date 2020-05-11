@@ -127,7 +127,7 @@ contract('AuctionContract', function (accounts) {
         /**********
         TASK 14: call winners function from accounts[0] to get the winner of item id 0
         ***********/
-        return auctionInstance.winners({ from: accounts[0] })
+        return auctionInstance.winners(0, { from: accounts[0] })
       }).then(function (result) {
         /**********
         TASK 15:  assert to see if the winner address is not the default address
@@ -135,11 +135,11 @@ contract('AuctionContract', function (accounts) {
                   Use notEqual method of assert
                   Parameters for notEqual : (result, default address , message);
         ***********/
-        assert.notEqual(result[0], '0x0000000000000000000000000000000000000000', 'Not Equal to Default');
+        assert.notEqual(result, '0x0000000000000000000000000000000000000000', 'Not Equal to Default');
         /**********
         TASK 16: call winners function from accounts[0] to get the winner of item id 1
         ***********/
-        return auctionInstance.winners({ from: accounts[0] })
+        return auctionInstance.winners(1, { from: accounts[0] })
       }).then(function (result) {
         /**********
         TASK 17:  assert to see if the winner address is not the default address
@@ -147,11 +147,11 @@ contract('AuctionContract', function (accounts) {
                   Use notEqual method of assert
                   Parameters for notEqual : (result, default address , message);
         ***********/
-        assert.notEqual(result[1], '0x0000000000000000000000000000000000000000', 'Not Equal to Default');
+        assert.notEqual(result, '0x0000000000000000000000000000000000000000', 'Not Equal to Default');
         /**********
         TASK 18: Call winners function from account 3 to get the winner of item id 2
         ***********/
-        return auctionInstance.winners({ from: accounts[3] })
+        return auctionInstance.winners(2, { from: accounts[3] })
       }).then(function (result) {
         /**********
         TASK 19:  assert to see if the winner address is not the default address
@@ -159,7 +159,7 @@ contract('AuctionContract', function (accounts) {
                   Use notEqual method of assert
                   Parameters for notEqual : (result, default address , message);
         ***********/
-        assert.notEqual(result[2], '0x0000000000000000000000000000000000000000', 'Not Equal to Default');
+        assert.notEqual(result, '0x0000000000000000000000000000000000000000', 'Not Equal to Default');
       })
   });
 });
